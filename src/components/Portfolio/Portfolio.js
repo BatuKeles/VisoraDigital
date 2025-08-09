@@ -61,16 +61,6 @@ const Portfolio = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeCategory);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
-
   return (
     <section className="portfolio-section section-padding" id="portfolio">
       <div className="container">

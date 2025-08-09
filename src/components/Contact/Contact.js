@@ -26,7 +26,7 @@ const Contact = () => {
 
   useEffect(() => {
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-  }, []);
+  }, [EMAILJS_CONFIG.PUBLIC_KEY]);
 
   // URL'de #contact varsa otomatik focus
   useEffect(() => {
