@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/VisoraDigital/static/css/main.706def53.css",
+    "main.js": "/VisoraDigital/static/js/main.577f078e.js",
+    "static/js/453.12dfb01e.chunk.js": "/VisoraDigital/static/js/453.12dfb01e.chunk.js",
+    "index.html": "/VisoraDigital/index.html",
+    "main.706def53.css.map": "/VisoraDigital/static/css/main.706def53.css.map",
+    "main.577f078e.js.map": "/VisoraDigital/static/js/main.577f078e.js.map",
+    "453.12dfb01e.chunk.js.map": "/VisoraDigital/static/js/453.12dfb01e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.706def53.css",
+    "static/js/main.577f078e.js"
+  ]
+}
