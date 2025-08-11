@@ -10,10 +10,36 @@ import Contact from './components/Contact/Contact';
 
 function App() {
   useEffect(() => {
-    // Sayfa yüklendiğinde en üste scroll et - güçlü versiyon
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Sayfa yüklendiğinde en üste scroll et - mobil ve desktop için güçlü versiyon
+    const scrollToTop = () => {
+      // Birden fazla yöntemle scroll'u sıfırla
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      // Modern browsers için
+      if (window.pageYOffset !== 0) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+      
+      // Safari ve iOS için ek kontrol
+      if (document.scrollingElement) {
+        document.scrollingElement.scrollTop = 0;
+      }
+    };
+    
+    // Hemen çalıştır
+    scrollToTop();
+    
+    // Gecikme ile bir kez daha (mobil render gecikmesi için)
+    setTimeout(scrollToTop, 50);
+    setTimeout(scrollToTop, 200);
+    
+    // Sayfa tamamen yüklendiğinde bir kez daha
+    const handleLoad = () => scrollToTop();
+    window.addEventListener('load', handleLoad);
+    
+    return () => window.removeEventListener('load', handleLoad);
   }, []);
 
   return (

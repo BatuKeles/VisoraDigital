@@ -116,11 +116,6 @@ const Contact = () => {
     }
   };
 
-  // Sayfada herhangi bir tıklama olduğunda contact'a scroll
-  useEffect(() => {
-    scrollToContact();
-  }, []);
-
   const contactInfo = [
     {
       icon: '📧',

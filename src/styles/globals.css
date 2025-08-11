@@ -27,6 +27,13 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS Safari için smooth scrolling */
+  overflow-x: hidden; /* Yatay scroll'u engelle */
+}
+
+html, body {
+  position: relative;
+  scroll-padding-top: 0; /* Anchor linkler için padding */
 }
 
 body {
@@ -36,6 +43,11 @@ body {
   color: var(--text-primary);
   background: linear-gradient(135deg, #222831 0%, #393E46 100%);
   overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  /* Mobil scroll kontrolü */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 .container {
