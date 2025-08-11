@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/VisoraDigital/static/css/main.f703b3ba.css",
-    "main.js": "/VisoraDigital/static/js/main.3c9e69e1.js",
+    "main.css": "/VisoraDigital/static/css/main.ac668aed.css",
+    "main.js": "/VisoraDigital/static/js/main.1e99435b.js",
     "static/js/453.130492d6.chunk.js": "/VisoraDigital/static/js/453.130492d6.chunk.js",
     "index.html": "/VisoraDigital/index.html",
-    "main.f703b3ba.css.map": "/VisoraDigital/static/css/main.f703b3ba.css.map",
-    "main.3c9e69e1.js.map": "/VisoraDigital/static/js/main.3c9e69e1.js.map",
+    "main.ac668aed.css.map": "/VisoraDigital/static/css/main.ac668aed.css.map",
+    "main.1e99435b.js.map": "/VisoraDigital/static/js/main.1e99435b.js.map",
     "453.130492d6.chunk.js.map": "/VisoraDigital/static/js/453.130492d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f703b3ba.css",
-    "static/js/main.3c9e69e1.js"
+    "static/css/main.ac668aed.css",
+    "static/js/main.1e99435b.js"
   ]
 }
