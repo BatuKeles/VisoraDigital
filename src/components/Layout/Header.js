@@ -24,6 +24,20 @@ const Header = () => {
     setIsMobileMenuOpen(false); // Mobile menüyü kapat
   };
 
+  const handleNavClick = (sectionId) => {
+    console.log('Nav button clicked:', sectionId);
+    setIsMobileMenuOpen(false);
+    
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
@@ -32,12 +46,14 @@ const Header = () => {
             <img src="/logolar-05.png" alt="Visora Digital" className="logo-img" />
           </a>
           
+          {isMobileMenuOpen && <div className="nav-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>}
+          
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home" className="nav-link">Ana Sayfa</a>
-            <a href="#services" className="nav-link">Hizmetler</a>
-            <a href="#about" className="nav-link">Hakkımızda</a>
-            <a href="#portfolio" className="nav-link">Portfolyo</a>
-            <a href="#contact" className="nav-link">İletişim</a>
+            <button className="nav-link" onClick={() => handleNavClick('home')}>Ana Sayfa</button>
+            <button className="nav-link" onClick={() => handleNavClick('services')}>Hizmetler</button>
+            <button className="nav-link" onClick={() => handleNavClick('about')}>Hakkımızda</button>
+            <button className="nav-link" onClick={() => handleNavClick('portfolio')}>Portfolyo</button>
+            <button className="nav-link" onClick={() => handleNavClick('contact')}>İletişim</button>
           </nav>
 
           <div className="header-actions">

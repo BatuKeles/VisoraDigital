@@ -11,6 +11,64 @@ const ServiceModal = ({ onClose, service }) => {
     }
   };
 
+  const handleContactClick = () => {
+    // Modal'ı kapat
+    onClose();
+    
+    // Contact bölümündeki telefon numarasına scroll yap
+    setTimeout(() => {
+      const contactCta = document.querySelector('.contact-cta');
+      if (contactCta) {
+        contactCta.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      } else {
+        // Fallback olarak contact section'ına git
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }, 300); // Modal kapanma animasyonu için bekle
+  };
+
+  const handleQuoteClick = () => {
+    // Modal'ı kapat
+    onClose();
+    
+    // Contact formuna scroll yap
+    setTimeout(() => {
+      const contactForm = document.querySelector('.contact-form-container');
+      if (contactForm) {
+        contactForm.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+        
+        // Forma focus yap
+        setTimeout(() => {
+          const nameInput = document.querySelector('#name');
+          if (nameInput) {
+            nameInput.focus();
+          }
+        }, 500);
+      } else {
+        // Fallback olarak contact section'ına git
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }, 300); // Modal kapanma animasyonu için bekle
+  };
+
   const isWebDesign = service.category === 'Web Tasarım ve Geliştirme';
   const isDigitalMarketing = service.category === 'Dijital Pazarlama';
   const isSocialMedia = service.category === 'Sosyal Medya';
@@ -613,10 +671,10 @@ const ServiceModal = ({ onClose, service }) => {
         </div>
 
         <div className="modal-footer">
-          <button className="btn-quote" style={{background: '#4ECDC4'}}>
+          <button className="btn-quote" style={{background: '#4ECDC4'}} onClick={handleQuoteClick}>
             Ücretsiz Teklif Al
           </button>
-          <button className="btn-contact" onClick={onClose}>
+          <button className="btn-contact" onClick={handleContactClick}>
             İletişime Geç
           </button>
         </div>

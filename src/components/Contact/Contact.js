@@ -20,8 +20,8 @@ const Contact = () => {
   // EmailJS konfigürasyonu - Bu değerleri EmailJS dashboard'unuzdan alacaksınız
   const EMAILJS_CONFIG = {
     SERVICE_ID: "visora_gmail_service",      // EmailJS'de oluşturduğunuz service ID
-    TEMPLATE_ID: "visora_contact_template",  // EmailJS'de oluşturduğunuz template ID  
-    PUBLIC_KEY: "YOUR_PUBLIC_KEY_HERE"       // EmailJS'den alacağınız public key
+    TEMPLATE_ID: "visora_contact_template",  // EmailJS'de oluşturduğunız template ID  
+    PUBLIC_KEY: "9V7-VFjjMWP_VQDvK"           // EmailJS'den alacağınız public key - GEÇİCİ DEVRE DIŞI
   };
 
   useEffect(() => {
