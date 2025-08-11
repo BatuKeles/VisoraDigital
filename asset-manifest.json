@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "./static/css/main.f6842c94.css",
-    "main.js": "./static/js/main.e44f5018.js",
-    "static/js/453.130492d6.chunk.js": "./static/js/453.130492d6.chunk.js",
-    "index.html": "./index.html",
-    "main.f6842c94.css.map": "./static/css/main.f6842c94.css.map",
-    "main.e44f5018.js.map": "./static/js/main.e44f5018.js.map",
-    "453.130492d6.chunk.js.map": "./static/js/453.130492d6.chunk.js.map"
+    "main.css": "/VisoraDigital/static/css/main.c5cf039a.css",
+    "main.js": "/VisoraDigital/static/js/main.eb3b8995.js",
+    "static/js/453.130492d6.chunk.js": "/VisoraDigital/static/js/453.130492d6.chunk.js",
+    "index.html": "/VisoraDigital/index.html",
+    "main.c5cf039a.css.map": "/VisoraDigital/static/css/main.c5cf039a.css.map",
+    "main.eb3b8995.js.map": "/VisoraDigital/static/js/main.eb3b8995.js.map",
+    "453.130492d6.chunk.js.map": "/VisoraDigital/static/js/453.130492d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6842c94.css",
-    "static/js/main.e44f5018.js"
+    "static/css/main.c5cf039a.css",
+    "static/js/main.eb3b8995.js"
   ]
 }
