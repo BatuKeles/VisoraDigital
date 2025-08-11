@@ -42,20 +42,40 @@ html, body {
 @media (max-width: 768px) {
   html {
     scroll-snap-type: none !important;
-    scroll-behavior: auto; /* Mobilde smooth scroll problemleri için */
+    scroll-behavior: auto !important; /* Mobilde smooth scroll problemleri için */
+    scroll-padding-top: 0 !important;
+    scroll-margin-top: 0 !important;
   }
   
   body {
     scroll-snap-type: none !important;
     /* Touch scroll reset */
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
+    scroll-padding-top: 0 !important;
+    scroll-margin-top: 0 !important;
+    /* Mobil scroll pozisyonunu zorla sıfırla */
+    overscroll-behavior: none;
   }
   
   /* Tüm elemanların scroll snap'ini engelle */
   * {
     scroll-snap-align: none !important;
     scroll-snap-stop: normal !important;
+    scroll-padding: 0 !important;
+    scroll-margin: 0 !important;
+  }
+  
+  /* Ana container'lar için scroll reset */
+  #root, .App, main {
+    scroll-padding-top: 0 !important;
+    scroll-margin-top: 0 !important;
+  }
+  
+  /* Tüm section'lar için */
+  section {
+    scroll-padding-top: 0 !important;
+    scroll-margin-top: 0 !important;
   }
 }
 
