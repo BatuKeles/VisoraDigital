@@ -13,73 +13,75 @@ function App() {
     // Mobil kontrol
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
-    // URL'deki hash'i temizle ve sayfayı en üste çek
-    const forceScrollToTop = () => {
-      // URL hash'i tamamen temizle
+    // URL'deki hash'i temizle
+    if (window.location.hash) {
       window.history.replaceState({}, document.title, window.location.pathname);
-      
-      // Scroll'u zorla sıfırla - mobil için ultra agresif
+    }
+    
+    // Sayfanın en üstüne scroll yap
+    const scrollToTop = () => {
       if (isMobile) {
-        // Mobil Safari ve Chrome için multiple approach
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        window.pageYOffset = 0;
-        window.scrollY = 0;
-        window.scrollTo(0, 0);
-        
-        // Scroll element'lerini zorla sıfırla
-        if (document.scrollingElement) {
-          document.scrollingElement.scrollTop = 0;
+        // Mobil için Hero section'a yumuşak scroll
+        const heroSection = document.getElementById('home');
+        if (heroSection) {
+          heroSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        } else {
+          // Hero section bulunamazsa manuel scroll
+          window.scrollTo({ 
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
         }
-        
-        // Root element'i de sıfırla
-        const rootElement = document.getElementById('root');
-        if (rootElement) {
-          rootElement.scrollTop = 0;
-        }
-        
-        // Viewport'u reset et
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       } else {
-        // Desktop için basit reset
+        // Desktop için instant scroll
         window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
       }
     };
     
-    // Anında çalıştır - DOM yüklenmeden önce bile
-    forceScrollToTop();
+    // Sayfa yüklendiğinde scroll yap
+    const handlePageLoad = () => {
+      if (isMobile) {
+        // Mobilde biraz gecikme ile scroll yap (DOM render bekle)
+        setTimeout(scrollToTop, 300);
+        setTimeout(scrollToTop, 600); // Ekstra güvenlik
+      } else {
+        scrollToTop();
+      }
+    };
     
-    // Mobil için aggressive timing
-    if (isMobile) {
-      // Her 50ms'de bir kontrol et - ilk 1 saniyede
-      const intervals = [10, 50, 100, 200, 300, 500, 800, 1000];
-      intervals.forEach(delay => {
-        setTimeout(forceScrollToTop, delay);
-      });
-    } else {
-      // Desktop için daha az agresif
-      setTimeout(forceScrollToTop, 50);
-      setTimeout(forceScrollToTop, 200);
-    }
+    // Hemen çalıştır
+    handlePageLoad();
     
-    // DOM tamamen hazır olduğunda
-    const handleDOMContentLoaded = () => forceScrollToTop();
+    // DOM hazır olduğunda
+    const handleDOMContentLoaded = () => {
+      if (isMobile) {
+        setTimeout(scrollToTop, 200);
+      }
+    };
+    
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', handleDOMContentLoaded);
     } else {
-      forceScrollToTop();
+      handleDOMContentLoaded();
     }
     
     // Sayfa tamamen yüklendiğinde
-    const handleLoad = () => forceScrollToTop();
+    const handleLoad = () => {
+      if (isMobile) {
+        setTimeout(scrollToTop, 100);
+      }
+    };
     window.addEventListener('load', handleLoad);
     
     // Mobil orientation change
     const handleOrientationChange = () => {
       if (isMobile) {
-        setTimeout(forceScrollToTop, 100);
+        setTimeout(scrollToTop, 200);
       }
     };
     window.addEventListener('orientationchange', handleOrientationChange);

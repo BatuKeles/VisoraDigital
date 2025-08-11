@@ -15,58 +15,60 @@ const ServiceModal = ({ onClose, service }) => {
     // Modal'ı kapat
     onClose();
     
+    // GEÇİCİ OLARAK DEVRE DIŞI - Mobil scroll problemi için
     // Contact bölümündeki telefon numarasına scroll yap
-    setTimeout(() => {
-      const contactCta = document.querySelector('.contact-cta');
-      if (contactCta) {
-        contactCta.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'center'
-        });
-      } else {
-        // Fallback olarak contact section'ına git
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    }, 300); // Modal kapanma animasyonu için bekle
+    // setTimeout(() => {
+    //   const contactCta = document.querySelector('.contact-cta');
+    //   if (contactCta) {
+    //     contactCta.scrollIntoView({ 
+    //       behavior: 'smooth',
+    //       block: 'center'
+    //     });
+    //   } else {
+    //     // Fallback olarak contact section'ına git
+    //     const contactSection = document.getElementById('contact');
+    //     if (contactSection) {
+    //       contactSection.scrollIntoView({ 
+    //         behavior: 'smooth',
+    //         block: 'start'
+    //       });
+    //     }
+    //   }
+    // }, 300); // Modal kapanma animasyonu için bekle
   };
 
   const handleQuoteClick = () => {
     // Modal'ı kapat
     onClose();
     
+    // GEÇİCİ OLARAK DEVRE DIŞI - Mobil scroll problemi için
     // Contact formuna scroll yap
-    setTimeout(() => {
-      const contactForm = document.querySelector('.contact-form-container');
-      if (contactForm) {
-        contactForm.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'center'
-        });
+    // setTimeout(() => {
+    //   const contactForm = document.querySelector('.contact-form-container');
+    //   if (contactForm) {
+    //     contactForm.scrollIntoView({ 
+    //       behavior: 'smooth',
+    //       block: 'center'
+    //     });
         
-        // Forma focus yap
-        setTimeout(() => {
-          const nameInput = document.querySelector('#name');
-          if (nameInput) {
-            nameInput.focus();
-          }
-        }, 500);
-      } else {
-        // Fallback olarak contact section'ına git
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    }, 300); // Modal kapanma animasyonu için bekle
+    //     // Forma focus yap
+    //     setTimeout(() => {
+    //       const nameInput = document.querySelector('#name');
+    //       if (nameInput) {
+    //         nameInput.focus();
+    //       }
+    //     }, 500);
+    //   } else {
+    //     // Fallback olarak contact section'ına git
+    //     const contactSection = document.getElementById('contact');
+    //     if (contactSection) {
+    //       contactSection.scrollIntoView({ 
+    //         behavior: 'smooth',
+    //         block: 'start'
+    //       });
+    //     }
+    //   }
+    // }, 300); // Modal kapanma animasyonu için bekle
   };
 
   const isWebDesign = service.category === 'Web Tasarım ve Geliştirme';

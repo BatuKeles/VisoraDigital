@@ -42,19 +42,18 @@ html, body {
 @media (max-width: 768px) {
   html {
     scroll-snap-type: none !important;
-    scroll-behavior: auto !important; /* Mobilde smooth scroll problemleri için */
+    scroll-behavior: smooth !important; /* Mobilde smooth scroll'a izin ver */
     scroll-padding-top: 0 !important;
     scroll-margin-top: 0 !important;
   }
   
   body {
     scroll-snap-type: none !important;
-    /* Touch scroll reset */
+    /* Touch scroll */
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto !important;
+    scroll-behavior: smooth !important; /* Smooth scroll'a izin ver */
     scroll-padding-top: 0 !important;
     scroll-margin-top: 0 !important;
-    /* Mobil scroll pozisyonunu zorla sıfırla */
     overscroll-behavior: none;
   }
   
@@ -66,7 +65,7 @@ html, body {
     scroll-margin: 0 !important;
   }
   
-  /* Ana container'lar için scroll reset */
+  /* Ana container'lar için scroll ayarları */
   #root, .App, main {
     scroll-padding-top: 0 !important;
     scroll-margin-top: 0 !important;
