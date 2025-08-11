@@ -20,8 +20,8 @@ const Contact = () => {
   // EmailJS konfigürasyonu - Bu değerleri EmailJS dashboard'unuzdan alacaksınız
   const EMAILJS_CONFIG = {
     SERVICE_ID: "visora_gmail_service",      // EmailJS'de oluşturduğunuz service ID
-    TEMPLATE_ID: "visora_contact_template",  // EmailJS'de oluşturduğunız template ID  
-    PUBLIC_KEY: "9V7-VFjjMWP_VQDvK"           // EmailJS'den alacağınız public key - GEÇİCİ DEVRE DIŞI
+    TEMPLATE_ID: "template_bsjyr1i",  // EmailJS'de oluşturduğunız template ID  
+    PUBLIC_KEY: "tGsjLmaWCoe78lMLU"           // EmailJS'den alacağınız public key - GEÇİCİ DEVRE DIŞI
   };
 
   useEffect(() => {
@@ -317,10 +317,16 @@ const Contact = () => {
                 </form>
               ) : (
                 <div className="success-message">
-                  <div className="success-icon">✅</div>
+                  <div className="success-icon">🎉</div>
                   <h3>Teşekkürler!</h3>
                   <p>Mesajınız başarıyla alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek.</p>
+                  <div className="success-details">
+                    <p><strong>📧 E-posta:</strong> visoradigital34@gmail.com</p>
+                    <p><strong>📱 Telefon:</strong> +90 (542) 413 06 18</p>
+                    <p><strong>⏰ Yanıt Süresi:</strong> 2-4 saat içinde</p>
+                  </div>
                   <button onClick={resetForm} className="new-message-btn">
+                    <span>✉️</span>
                     Yeni Mesaj Gönder
                   </button>
                 </div>

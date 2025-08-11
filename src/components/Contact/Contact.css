@@ -319,6 +319,32 @@
   text-align: left;
 }
 
+.new-message-btn {
+  background: linear-gradient(135deg, #393E46 0%, #222831 100%);
+  color: #4ECDC4;
+  border: 2px solid #4ECDC4;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.new-message-btn:hover {
+  background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+  color: #222831;
+  border-color: #4ECDC4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+}
+
 .contact-cta {
   background: rgba(57, 62, 70, 0.8);
   border: 1px solid rgba(78, 205, 196, 0.3);
@@ -493,6 +519,12 @@
     font-size: 0.85rem;
   }
   
+  .new-message-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    margin-top: 16px;
+  }
+
   .contact-cta {
     padding: 24px 16px;
   }
