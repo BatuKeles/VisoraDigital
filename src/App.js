@@ -10,36 +10,70 @@ import Contact from './components/Contact/Contact';
 
 function App() {
   useEffect(() => {
-    // Sayfa yüklendiğinde en üste scroll et - mobil ve desktop için güçlü versiyon
+    // Mobil kontrol
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    
+    // URL'deki hash'i temizle (özellikle mobil için)
+    if (window.location.hash) {
+      window.history.replaceState(null, null, window.location.pathname);
+    }
+    
+    // Sayfa yüklendiğinde en üste scroll et
     const scrollToTop = () => {
-      // Birden fazla yöntemle scroll'u sıfırla
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      
-      // Modern browsers için
-      if (window.pageYOffset !== 0) {
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      }
-      
-      // Safari ve iOS için ek kontrol
-      if (document.scrollingElement) {
-        document.scrollingElement.scrollTop = 0;
+      // Mobil için özel kontroller
+      if (isMobile) {
+        // Mobil Safari ve diğer mobil tarayıcılar için
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        window.scrollTo(0, 0);
+        
+        // iOS Safari için özel
+        if (window.scrollY !== 0) {
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        }
+        
+        // Viewport scroll reset
+        if (document.scrollingElement) {
+          document.scrollingElement.scrollTop = 0;
+        }
+      } else {
+        // Desktop için normal scroll
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
       }
     };
     
     // Hemen çalıştır
     scrollToTop();
     
-    // Gecikme ile bir kez daha (mobil render gecikmesi için)
-    setTimeout(scrollToTop, 50);
-    setTimeout(scrollToTop, 200);
+    // Mobilde daha fazla gecikme ile tekrarla
+    if (isMobile) {
+      setTimeout(scrollToTop, 50);
+      setTimeout(scrollToTop, 100);
+      setTimeout(scrollToTop, 300);
+      setTimeout(scrollToTop, 600); // Mobil yavaş yükleme için
+    } else {
+      setTimeout(scrollToTop, 50);
+      setTimeout(scrollToTop, 200);
+    }
     
     // Sayfa tamamen yüklendiğinde bir kez daha
     const handleLoad = () => scrollToTop();
     window.addEventListener('load', handleLoad);
     
-    return () => window.removeEventListener('load', handleLoad);
+    // Orientasyon değişikliğinde de scroll reset (mobil için)
+    const handleOrientationChange = () => {
+      if (isMobile) {
+        setTimeout(scrollToTop, 100);
+      }
+    };
+    window.addEventListener('orientationchange', handleOrientationChange);
+    
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
   }, []);
 
   return (

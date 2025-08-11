@@ -29,11 +29,34 @@ html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* iOS Safari için smooth scrolling */
   overflow-x: hidden; /* Yatay scroll'u engelle */
+  /* Mobil scroll reset kontrolü */
+  scroll-snap-type: none; /* Snap scroll'u engelle */
 }
 
 html, body {
   position: relative;
   scroll-padding-top: 0; /* Anchor linkler için padding */
+}
+
+/* Mobil cihazlar için özel scroll kontrolleri */
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: none !important;
+    scroll-behavior: auto; /* Mobilde smooth scroll problemleri için */
+  }
+  
+  body {
+    scroll-snap-type: none !important;
+    /* Touch scroll reset */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+  
+  /* Tüm elemanların scroll snap'ini engelle */
+  * {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
 }
 
 body {

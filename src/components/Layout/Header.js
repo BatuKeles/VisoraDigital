@@ -42,9 +42,9 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <div className="header-content">
-          <a href="#home" className="logo">
+          <button onClick={() => handleNavClick('home')} className="logo">
             <img src="/logolar-05.png" alt="Visora Digital" className="logo-img" />
-          </a>
+          </button>
           
           {isMobileMenuOpen && <div className="nav-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>}
           

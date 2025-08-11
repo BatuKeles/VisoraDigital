@@ -28,14 +28,14 @@ const Contact = () => {
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
   }, [EMAILJS_CONFIG.PUBLIC_KEY]);
 
-  // URL'de #contact varsa otomatik focus
-  useEffect(() => {
-    if (window.location.hash === '#contact' && nameInputRef.current) {
-      setTimeout(() => {
-        nameInputRef.current.focus();
-      }, 500);
-    }
-  }, []);
+  // URL'de #contact varsa otomatik focus - DEVRE DIŞI
+  // useEffect(() => {
+  //   if (window.location.hash === '#contact' && nameInputRef.current) {
+  //     setTimeout(() => {
+  //       nameInputRef.current.focus();
+  //     }, 500);
+  //   }
+  // }, []);
 
   const handleChange = (e) => {
     setFormData({
